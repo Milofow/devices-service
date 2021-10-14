@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: homeautomationdashboard.devicesservice.DevicesServiceApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.288 s - in homeautomationdashboard.devicesservice.DevicesServiceApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.226 s - in homeautomationdashboard.devicesservice.DevicesServiceApplicationTests
