@@ -68,6 +68,8 @@ jobs:
         with:
           push: true
           tags: user/app:latest
+          secrets: |
+            GIT_AUTH_TOKEN=${{ secrets.MYTOKEN }}
           
           
       # Build and push Docker image with Buildx (don't push on PR)
