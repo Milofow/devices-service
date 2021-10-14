@@ -23,17 +23,15 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: https://index.docker.io/v1/
-        username: ${{ secrets.AzureAppService_ContainerUsername_880e01bc39c2486fae9ccbace420d536 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_6e7f0b54e88b481c90d7964480fa1962 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_e3ca718dbe184eebbd511dc888fa9bfc }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_8be54584fe014e3a8f272c70789b4404 }}
 
-    - name: Build and push
-      id: docker_build
+    - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
-          context: ./
-          file: ./Dockerfile
-          push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/devices-service:latest
+        push: true
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_e3ca718dbe184eebbd511dc888fa9bfc }}/milofow/devices-service:${{ github.sha }}
+        file: ./Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
@@ -42,15 +40,12 @@ jobs:
       name: 'production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
-
     steps:
-        
     - name: Deploy to Azure Web App
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'device-server'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_9d60bec3f8634358a0391fe48fca434b }}
-        images: 'https://index.docker.io/r/milofow/devices-service'
-       #images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_880e01bc39c2486fae9ccbace420d536 }}/milofow/devices-service:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_13384fc8d6cb40039bc06bfe31e5b70e }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_e3ca718dbe184eebbd511dc888fa9bfc }}/milofow/devices-service:${{ github.sha }}'
