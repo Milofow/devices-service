@@ -41,8 +41,14 @@ jobs:
     environment:
       name: 'production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+      
+
 
     steps:
+    - name: give image url
+      run: echo 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_880e01bc39c2486fae9ccbace420d536 }}/milofow/devices-service:${{ github.sha }}'
+        
+        
     - name: Deploy to Azure Web App
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
