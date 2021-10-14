@@ -1,0 +1,31 @@
+name: Deploy Docker to Azure
+
+on:
+ push:
+  branches:
+    - master
+
+
+jobs:
+  deploy:
+   runs-on: ubuntu-latest
+   environment: 
+     name: 'production'
+     url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+   
+   steps:
+     - name: Login via Az module
+       uses: azure/login@v1
+       with:
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+        enable-AzPSSession: true
+        
+     - name: Deploy Docker to Azure Web App
+       uses: azure/webapps-deploy@v2
+       with: 
+         app-name: 'devices-service'
+         slot-name: 'production'
+         images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_7fc0d6e8e9374667b73f96f5d1db6fda }}/milofow/devices-service:${{ github.sha }}'
+
+
+
