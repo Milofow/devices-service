@@ -9,6 +9,9 @@ on:
 jobs:
   deploy:
    runs-on: ubuntu-latest
+   environment: 
+     name: 'production'
+     url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
    
    steps:
      - name: Login via Az module
@@ -24,3 +27,6 @@ jobs:
          slot-name: 'production'
          publish-profile: ${{ secrets.AzureAppService_PublishProfile_a6e5632e5200468aa659e30d5bc94180 }}
          images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_7fc0d6e8e9374667b73f96f5d1db6fda }}/devices-service:${{ github.sha }}'
+
+
+
