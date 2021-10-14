@@ -41,13 +41,9 @@ jobs:
     environment:
       name: 'production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-      
 
 
     steps:
-    - name: give image url
-      run: echo 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_880e01bc39c2486fae9ccbace420d536 }}/milofow/devices-service:${{ github.sha }}'
-        
         
     - name: Deploy to Azure Web App
       id: deploy-to-webapp
@@ -56,4 +52,5 @@ jobs:
         app-name: 'device-server'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_9d60bec3f8634358a0391fe48fca434b }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_880e01bc39c2486fae9ccbace420d536 }}/milofow/devices-service:${{ github.sha }}'
+        images: 'https://index.docker.io/r/milofow/devices-service'
+       #images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_880e01bc39c2486fae9ccbace420d536 }}/milofow/devices-service:${{ github.sha }}'
