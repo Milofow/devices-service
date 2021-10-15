@@ -20,5 +20,5 @@ EXPOSE 9090
 
 WORKDIR /app
 
-COPY --from=build-env /target/devices-service.jar ./devices-service.jar
-CMD ["/usr/bin/java", "-jar", "/app/devices-service.jar"]
+COPY --from=build-env /app/target/devices-service.jar ./devices-service-0.0.1-SNAPSHOT.jar
+CMD ["/usr/bin/java", "-jar", "/app/devices-service-0.0.1-SNAPSHOT.jar"]
