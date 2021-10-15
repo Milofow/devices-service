@@ -6,12 +6,12 @@ COPY pom.xml ./
 RUN mvn dependency:go-offline
 
 #RUN mvn spring-javaformat:help
-RUN ./mvnw spring-javaformat:help
+#RUN ./mvnw spring-javaformat:help
 
 COPY . ./
 
 #RUN mvn spring-javaformat:apply
-RUN ./mvnw spring-javaformat:apply
+#RUN ./mvnw spring-javaformat:apply
 RUN mvn package -DfinalName=devices-service
 
 FROM openjdk:11
