@@ -16,7 +16,7 @@ RUN mvn package -DfinalName=devices-service
 
 FROM openjdk:11
 
-EXPOSE 9090
+EXPOSE 9091
 
 WORKDIR /app
 
