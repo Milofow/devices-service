@@ -5,7 +5,7 @@ WORKDIR /app
 COPY pom.xml ./
 RUN mvn dependency:go-offline
 
-RUN mvn spring-javaformat:help
+#RUN mvn spring-javaformat:help
 
 COPY . ./
 
@@ -20,4 +20,4 @@ EXPOSE 9090
 WORKDIR /app
 
 COPY --from=build-env /app/target/devices-service.jar ./devices-service.jar
-ENTRYPOINT ["java", "-jar", "/devices-service.jar"]
+CMD ["/usr/bin/java", "-jar", "/app/devices-service.jar"]
