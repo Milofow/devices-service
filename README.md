@@ -2,6 +2,7 @@
 
 architecture:
 
+three tier/three layer architecture
 
 ![architecture](https://cdn.discordapp.com/attachments/799690499157917719/918424560846651482/architecture_api.png)
 
