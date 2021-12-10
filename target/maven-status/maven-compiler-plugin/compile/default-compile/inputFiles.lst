@@ -1,4 +1,7 @@
-C:\Users\Milofow\IdeaProjects\devices-service\src\main\java\homeautomationdashboard\devicesservice\repositories\DeviceRepository.java
+C:\Users\Milofow\IdeaProjects\devices-service\src\main\java\homeautomationdashboard\devicesservice\controller\DeviceController.java
+C:\Users\Milofow\IdeaProjects\devices-service\src\main\java\homeautomationdashboard\devicesservice\repository\DeviceRepository.java
+C:\Users\Milofow\IdeaProjects\devices-service\src\main\java\homeautomationdashboard\devicesservice\service\impl\DeviceServiceImpl.java
+C:\Users\Milofow\IdeaProjects\devices-service\src\main\java\homeautomationdashboard\devicesservice\service\DeviceService.java
 C:\Users\Milofow\IdeaProjects\devices-service\src\main\java\homeautomationdashboard\devicesservice\DevicesServiceApplication.java
-C:\Users\Milofow\IdeaProjects\devices-service\src\main\java\homeautomationdashboard\devicesservice\controllers\DeviceController.java
-C:\Users\Milofow\IdeaProjects\devices-service\src\main\java\homeautomationdashboard\devicesservice\models\Device.java
+C:\Users\Milofow\IdeaProjects\devices-service\src\main\java\homeautomationdashboard\devicesservice\exception\ResourceNotFoundException.java
+C:\Users\Milofow\IdeaProjects\devices-service\src\main\java\homeautomationdashboard\devicesservice\model\Device.java
