@@ -1,4 +1,1 @@
-homeautomationdashboard\devicesservice\models\Device.class
 homeautomationdashboard\devicesservice\DevicesServiceApplication.class
-homeautomationdashboard\devicesservice\controllers\DeviceController.class
-homeautomationdashboard\devicesservice\repositories\DeviceRepository.class
