@@ -1,6 +1,11 @@
 # Device service
 This service is responsible for handling data related to devices connected to the [home automation dashboard](https://github.com/Milofow/front-end-dashboard). The service stores and retrieve this data inside a database.
 
+
+## MySQL database
+I chose a MySQL database, because my goal is to allow users to create groups of IoT's, making them relational. In MySQL it's easier to work with relational data then a non sql database. I could consider a non sql database if I only worked with seperate IoT devices.
+
+
 ## Requests
 Currently acceptable requests are:
 - GET: ```/devices``` 
