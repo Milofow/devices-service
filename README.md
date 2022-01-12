@@ -1,5 +1,5 @@
 # Device service
-This service is responsible for handling data related to devices connected to the [home automation dashboard](https://github.com/Milofow/front-end-dashboard). The service stores and retrieve this data inside a database.
+This service is responsible for handling data related to devices connected to the [home automation dashboard](https://github.com/Milofow/front-end-dashboard). The service stores and retrieve this data inside a database. This service works as an API using REST.
 
 
 ## MySQL database
