@@ -14,4 +14,4 @@ The application works with a three layer architecture. This means that all my co
 
 
 ![Three tier/layer architecture](https://cdn.discordapp.com/attachments/799690499157917719/920016209691431052/architecture_api.png)
-<i>Source: https://www.youtube.com/watch?v=th3uIP7D8nk&t=1435s&ab_channel=JavaGuides</i>
+*Source: https://www.youtube.com/watch?v=th3uIP7D8nk&t=1435s&ab_channel=JavaGuides*
