@@ -1,9 +1,11 @@
 package homeautomationdashboard.devicesservice.model;
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
 
+@Builder
 @Data
 @Entity
 @Table(name = "devices")
@@ -22,7 +24,7 @@ public class Device {
     public Device(){}
 
 
-    public Device(Integer id, String name, Boolean status) {
+    public Device(long id, String name, Boolean status) {
         this.id = id;
         this.name = name;
         this.status = status;
