@@ -12,7 +12,7 @@ COPY . ./
 
 #RUN mvn spring-javaformat:apply
 #RUN ./mvnw spring-javaformat:apply
-RUN mvn package -DfinalName=devices-service
+RUN mvn package
 
 FROM openjdk:11
 
