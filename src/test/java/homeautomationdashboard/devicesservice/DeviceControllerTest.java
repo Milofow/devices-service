@@ -40,7 +40,7 @@ public class DeviceControllerTest {
 
 
     @Test
-    public void Should_DeleteDeviceById_When_DeviceIsFound() throws Exception {
+    public void Should_DeleteDeviceById_When_DeviceIsFoundd() throws Exception {
         Device device = new Device(12L, "Lamp 1", true);
 
         when(service.getDeviceById(device.getId())).thenReturn(device);
