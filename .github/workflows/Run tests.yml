@@ -1,7 +1,17 @@
-name: tests
-on: push
+name: Run tests
+
+on: 
+  push:
+    branches:
+      -development
+      
+  pull_request:
+    branches:
+      -master
+      -development
+      
 jobs:
-  run_tests:
+  Run_tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
