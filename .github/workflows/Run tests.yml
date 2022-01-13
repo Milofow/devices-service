@@ -5,6 +5,11 @@ on:
     branches:
       -development
       
+  pull_request:
+    branches:
+      -master
+      -development
+      
 jobs:
   Run_tests:
     runs-on: ubuntu-latest
