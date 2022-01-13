@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class DeviceServiceImpl implements DeviceService {
+public class DeviceServiceImpl {
 
     private DeviceRepository deviceRepository;
 
@@ -19,29 +19,23 @@ public class DeviceServiceImpl implements DeviceService {
         this.deviceRepository = deviceRepository;
     }
 
-    @Override
+
     public Device saveDevice(Device device) {
         return deviceRepository.save(device);
     }
 
-    @Override
+
     public List<Device> getAllDevices() {
         return deviceRepository.findAll();
     }
 
-    @Override
+
     public Device getDeviceById(long id) {
-//        Optional<Device> device = deviceRepository.findById(id);
-//        if (device.isPresent()) {
-//            return device.get();
-//        } else {
-//            throw new ResourceNotFoundException("Device", "Id", id);
-//        }
         return deviceRepository.findById(id).orElseThrow(() ->
                         new ResourceNotFoundException("Device", "Id", id));
     }
 
-    @Override
+
     public Device updateDevice(Device device, long id) {
         //Check if device exists
         Device existingDevice = deviceRepository.findById(id).orElseThrow(
@@ -57,11 +51,11 @@ public class DeviceServiceImpl implements DeviceService {
         return existingDevice;
     }
 
-    @Override
+
     public void deleteDevice(long id) {
         //Check if device exists
-        deviceRepository.findById(id).orElseThrow(() ->
-                                new ResourceNotFoundException("Device", "Id", id));
+        getDeviceById(id);
         deviceRepository.deleteById(id);
+
     }
 }
