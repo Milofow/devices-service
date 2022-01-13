@@ -4,11 +4,7 @@ on:
   push:
     branches:
       -development
-      
-  pull_request:
-    branches:
-      -master
-      -development
+
       
 jobs:
   Run_tests:
