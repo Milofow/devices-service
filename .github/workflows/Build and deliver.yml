@@ -2,8 +2,9 @@ name: Build and deliver to Docker Hub
 
 on:
   push:
-    branches:
-      - master
+    branches: [master]
+
+
   workflow_dispatch:
 
 jobs:
