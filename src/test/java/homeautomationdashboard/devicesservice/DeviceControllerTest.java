@@ -27,7 +27,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import homeautomationdashboard.devicesservice.exception.ResourceNotFoundException;
 
 @WebMvcTest(DeviceController.class)
-@AutoConfigureMockMvc
 public class DeviceControllerTest {
 
     private static final int UNKNOWN_ID = Integer.MAX_VALUE;
@@ -37,7 +36,6 @@ public class DeviceControllerTest {
 
     @MockBean
     private DeviceServiceImpl service;
-
 
     @Test
     public void Should_DeleteDeviceById_When_DeviceIsFoundd() throws Exception {
