@@ -1,6 +1,8 @@
 package homeautomationdashboard.devicesservice;
 
+import static net.bytebuddy.matcher.ElementMatchers.is;
 import static org.mockito.Mockito.*;
+import static org.springframework.test.web.client.match.MockRestRequestMatchers.jsonPath;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -11,6 +13,7 @@ import homeautomationdashboard.devicesservice.model.Device;
 import homeautomationdashboard.devicesservice.repository.DeviceRepository;
 import homeautomationdashboard.devicesservice.service.DeviceService;
 import homeautomationdashboard.devicesservice.service.impl.DeviceServiceImpl;
+import lombok.val;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
@@ -23,8 +26,13 @@ import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultMatcher;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import homeautomationdashboard.devicesservice.exception.ResourceNotFoundException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @WebMvcTest(DeviceController.class)
 @AutoConfigureMockMvc
@@ -38,7 +46,7 @@ public class DeviceControllerTest {
     @MockBean
     private DeviceServiceImpl service;
 
-
+//Test delete
     @Test
     public void Should_DeleteDeviceById_When_DeviceIsFoundd() throws Exception {
         Device device = new Device(12L, "Lamp 1", true);
@@ -67,4 +75,39 @@ public class DeviceControllerTest {
 //        //verifyNoMoreInteractions(service);
 //    }
 
+
+
+
+//Test get all happy flow
+    @Test
+    public void Should_GetAllDevices_When_FindAllDevice_IsCalled() throws Exception {
+        Device device1 = new Device(12L, "Lamp 1", true);
+        Device device2 = new Device(13L, "Switch 1", false);
+
+        List<Device> devices = new ArrayList<>();
+        devices.add(device1);
+        devices.add(device2);
+
+        when(service.getAllDevices()).thenReturn(devices);
+
+        mockMvc.perform(get("/api/devices"))
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.length()").value(2))
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].id").value(12));
+
+        verify(service, times(1)).getAllDevices();
+        verifyNoMoreInteractions(service);
+    }
+
+    //Test get all bad flow
+    @Test
+    public void Should_ReturnEmptyList_When_FindAllDevice_IsNotCalled() throws Exception {
+
+        mockMvc.perform(get("/api/devices"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.length()").value(0))
+                .andExpect(status().isOk());
+
+        verify(service, times(1)).getAllDevices();
+        verifyNoMoreInteractions(service);
+    }
 }
